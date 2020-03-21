@@ -13,6 +13,7 @@ import { PlayerMenuComponent } from './views/main-view/player-menu/player-menu.c
 import { DialogNewPlayerComponent } from './views/main-view/player-menu/dialog-new-player/dialog-new-player.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

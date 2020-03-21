@@ -1,3 +1,14 @@
-.container {
-  padding: 10px;
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-container > div {
+  text-align: center;
+}
+
+.child {
+  flex: 1;
+  min-width: 25%;
 }
