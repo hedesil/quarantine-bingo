@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+
+export interface Name {
+  name: string;
+}
 
 @Component({
   selector: 'app-dialog-new-player',
@@ -8,7 +12,9 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class DialogNewPlayerComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogNewPlayerComponent>) { }
+  constructor(public dialogRef: MatDialogRef<DialogNewPlayerComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: Name) {
+  }
 
   ngOnInit(): void {
   }

@@ -6,6 +6,9 @@
     <p>
       No hay salas disponibles actualmente
     </p>
+    <div *ngIf="room">
+      <p>{{room}}</p>
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="openDialog()">Nueva sala</button>

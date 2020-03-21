@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DialogNewPlayerComponent} from '../player-menu/dialog-new-player/dialog-new-player.component';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogNewGameComponent} from './dialog-new-game/dialog-new-game.component';
@@ -9,8 +9,11 @@ import {DialogNewGameComponent} from './dialog-new-game/dialog-new-game.componen
   styleUrls: ['./game-menu.component.css']
 })
 export class GameMenuComponent implements OnInit {
+  public rooms = [];
+  public room;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
@@ -18,7 +21,12 @@ export class GameMenuComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogNewGameComponent, {
       width: '250px',
-      data: {}
+      data: {room: this.room}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.room = result;
     });
   }
 }

@@ -8,7 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./player-menu.component.css']
 })
 export class PlayerMenuComponent implements OnInit {
-
+  name: string;
   constructor(public dialog: MatDialog) {
   }
 
@@ -19,6 +19,10 @@ export class PlayerMenuComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogNewPlayerComponent, {
       width: '250px',
       data: {}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.name = result;
     });
   }
 }

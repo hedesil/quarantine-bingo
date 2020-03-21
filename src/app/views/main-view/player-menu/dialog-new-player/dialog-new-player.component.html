@@ -1,11 +1,12 @@
-<h1 mat-dialog-title>¡Hola! </h1>
+<h1 mat-dialog-title>¡Bienvenido! </h1>
 <div mat-dialog-content>
   <p>¿Cual es tu nombre?</p>
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="data.name">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button color="primary" (click)="onNoClick()">Cancelar</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.name" cdkFocusInitial>Añadir</button>
 </div>

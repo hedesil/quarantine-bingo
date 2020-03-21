@@ -1,11 +1,12 @@
-  <h1 mat-dialog-title>¡Bienvenido! </h1>
+<h1 mat-dialog-title>¡Bienvenido! </h1>
 <div mat-dialog-content>
   <p>¿Cual será el nombre de tu sesión?</p>
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
+    <mat-label>Nueva sala</mat-label>
+    <input matInput [(ngModel)]="data.room">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button color="primary" (click)="onNoClick()">Cancelar</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.room" cdkFocusInitial>Añadir</button>
 </div>

@@ -6,6 +6,9 @@
     <p>
       No hay jugadores conectados actualmente
     </p>
+    <div *ngIf="name">
+      {{name}}
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="openDialog()">Añadir jugador</button>
