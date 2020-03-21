@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DialogNewPlayerComponent} from './dialog-new-player/dialog-new-player.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-player-menu',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogNewPlayerComponent, {
+      width: '250px',
+      data: {}
+    });
+  }
 }

@@ -1,1 +1,13 @@
-<p>player-menu works!</p>
+<mat-card class="new-game-container">
+  <mat-card-title>
+    <h3>Lista de jugadores:</h3>
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      No hay jugadores conectados actualmente
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialog()">Añadir jugador</button>
+  </mat-card-actions>
+</mat-card>
