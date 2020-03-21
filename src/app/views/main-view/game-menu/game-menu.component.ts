@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {DialogNewPlayerComponent} from '../player-menu/dialog-new-player/dialog-new-player.component';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogNewGameComponent} from './dialog-new-game/dialog-new-game.component';
 
 @Component({
   selector: 'app-game-menu',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogNewGameComponent, {
+      width: '250px',
+      data: {}
+    });
+  }
 }

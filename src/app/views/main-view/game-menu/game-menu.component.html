@@ -1,13 +1,13 @@
 <mat-card class="new-game-container">
   <mat-card-title>
-    <h3>Juegos disponibles:</h3>
+    <h1>Salas disponibles:</h1>
   </mat-card-title>
   <mat-card-content>
     <p>
-      No hay juegos disponibles
+      No hay salas disponibles actualmente
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Nuevo juego</button>
+    <button mat-raised-button color="primary" (click)="openDialog()">Nueva sala</button>
   </mat-card-actions>
 </mat-card>

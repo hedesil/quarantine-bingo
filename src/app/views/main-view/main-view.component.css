@@ -11,4 +11,5 @@
 .child {
   flex: 1;
   min-width: 25%;
+  padding: 1em;
 }

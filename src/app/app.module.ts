@@ -14,6 +14,7 @@ import { DialogNewPlayerComponent } from './views/main-view/player-menu/dialog-n
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { DialogNewGameComponent } from './views/main-view/game-menu/dialog-new-game/dialog-new-game.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MainViewComponent,
     GameMenuComponent,
     PlayerMenuComponent,
-    DialogNewPlayerComponent
+    DialogNewPlayerComponent,
+    DialogNewGameComponent
   ],
   imports: [
     BrowserModule,
