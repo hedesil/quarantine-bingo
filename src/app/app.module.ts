@@ -17,6 +17,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {DialogNewGameComponent} from './views/main-view/game-menu/dialog-new-game/dialog-new-game.component';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {StoreModule} from '@ngrx/store';
+import {environment} from '../environments/environment';
+import {EffectsModule} from '@ngrx/effects';
+import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,16 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     MatGridListModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    StoreModule.forRoot({}, {
+      metaReducers: !environment.production ? [] : [],
+      runtimeChecks: {
+        strictActionImmutability: true,
+        strictStateImmutability: true
+      }
+    }),
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot({routerState: RouterState.Minimal}),
   ],
   providers: [],
   bootstrap: [AppComponent]

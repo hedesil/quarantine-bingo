@@ -5,7 +5,7 @@ import {MainViewComponent} from './views/main-view/main-view.component';
 
 const routes: Routes = [
   {path: '', component: MainViewComponent, pathMatch: 'full'},
-  {path: 'main', component: MainViewComponent}
+  {path: 'main', component: MainViewComponent},
 ];
 
 @NgModule({

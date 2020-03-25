@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DialogNewPlayerComponent} from '../player-menu/dialog-new-player/dialog-new-player.component';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogNewGameComponent} from './dialog-new-game/dialog-new-game.component';
+import {GameSessionsService} from './game-sessions-manager/game-sessions.service';
+import {GameSession} from './game-sessions-manager/game-sessions.model';
 
 @Component({
   selector: 'app-game-menu',
@@ -12,10 +14,11 @@ export class GameMenuComponent implements OnInit {
   public rooms = [];
   public room;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private gameSessionsService: GameSessionsService) {
   }
 
   ngOnInit(): void {
+    this.gameSessionsService.loadGameSessions();
   }
 
   openDialog(): void {
@@ -27,6 +30,10 @@ export class GameMenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.room = result;
+      const session: GameSession = {
+        id: this.room
+      };
+      this.gameSessionsService.addGameSession(session);
     });
   }
 }
