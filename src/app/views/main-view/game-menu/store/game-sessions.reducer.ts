@@ -16,12 +16,12 @@ export const initialState: GameSessionsState = {
 const gameSessionsReducer = createReducer(
   initialState,
   on(GameSessionsActions.loadGameSessions, state => state),
-  on(GameSessionsActions.addGameSession, (state, {newGameSession}) => {
+  on(GameSessionsActions.addGameSession, (state, { newGameSession}) => {
     return {
       ...state,
       gameSessions: {
         ...state.gameSessions,
-        list: [...state.gameSessions.list, addGameSession]
+        list: [...state.gameSessions.list, newGameSession]
       }
     };
   })

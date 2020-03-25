@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DialogNewPlayerComponent} from '../player-menu/dialog-new-player/dialog-new-player.component';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogNewGameComponent} from './dialog-new-game/dialog-new-game.component';
-import {GameSessionsService} from './game-sessions-manager/game-sessions.service';
-import {GameSession} from './game-sessions-manager/game-sessions.model';
+import {GameSessionsService} from './store/game-sessions.service';
+import {GameSession} from './store/game-sessions.model';
 
 @Component({
   selector: 'app-game-menu',

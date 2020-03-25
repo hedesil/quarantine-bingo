@@ -21,6 +21,8 @@ import {StoreModule} from '@ngrx/store';
 import {environment} from '../environments/environment';
 import {EffectsModule} from '@ngrx/effects';
 import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
+import * as fromGameSession from './views/main-view/game-menu/store/game-sessions.reducer';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,10 @@ import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
     }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({routerState: RouterState.Minimal}),
+    StoreModule.forFeature(
+      fromGameSession.gameSessionFeatureKey,
+      fromGameSession.reducer
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

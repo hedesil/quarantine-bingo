@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as GameSessionsActions from './game-sessions.actions';
 import {GameSession, GameSessions} from './game-sessions.model';
+import {Observable} from 'rxjs';
+import * as GameSessionsSelector from './game-sessions.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,14 @@ export class GameSessionsService {
     this.store.dispatch(
       GameSessionsActions.selectGameSession({preferredSessionId})
     );
+  }
+
+  public getGameSessionsList$(): Observable<GameSession[]> {
+    return this.store.select(GameSessionsSelector.getGameSessionsList);
+  }
+
+  public getPreferredGameSession$(): Observable<string> {
+    return this.store.select(GameSessionsSelector.getPreferredGameSession);
   }
 
 }
