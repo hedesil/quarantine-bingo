@@ -4,4 +4,5 @@ export interface GameSession {
 
 export interface GameSessions {
   list: GameSession[];
+  preferred: string;
 }
