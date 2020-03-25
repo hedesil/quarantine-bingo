@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {DialogNewGameComponent} from './dialog-new-game/dialog-new-game.component';
 import {GameSessionsService} from './store/game-sessions.service';
 import {GameSession} from './store/game-sessions.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-game-menu',
@@ -13,12 +14,16 @@ import {GameSession} from './store/game-sessions.model';
 export class GameMenuComponent implements OnInit {
   public rooms = [];
   public room;
+  public gameSessionsList$: Observable<GameSession[]>;
+  public preferredGameSession$: Observable<string>;
 
   constructor(public dialog: MatDialog, private gameSessionsService: GameSessionsService) {
   }
 
   ngOnInit(): void {
     this.gameSessionsService.loadGameSessions();
+    this.gameSessionsList$ = this.gameSessionsService.getGameSessionsList$();
+    this.preferredGameSession$ = this.gameSessionsService.getPreferredGameSession$();
   }
 
   openDialog(): void {

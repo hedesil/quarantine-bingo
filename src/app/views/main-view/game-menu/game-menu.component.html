@@ -3,11 +3,8 @@
     <h1>Salas disponibles:</h1>
   </mat-card-title>
   <mat-card-content>
-    <p>
-      No hay salas disponibles actualmente
-    </p>
-    <div *ngIf="room">
-      <p>{{room}}</p>
+    <div *ngFor='let session of gameSessionsList$ | async'>
+      {{session.id}}
     </div>
   </mat-card-content>
   <mat-card-actions>
